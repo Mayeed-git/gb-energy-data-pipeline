@@ -1,0 +1,51 @@
+name: GB Energy Data Pipeline
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "17 8 * * *"
+      timezone: "Europe/London"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: gb-energy-pipeline
+  cancel-in-progress: false
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: gb-energy-analytics
+          workload_identity_provider: projects/189565233700/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
+          service_account: github-energy-pipeline@gb-energy-analytics.iam.gserviceaccount.com
+          create_credentials_file: true
+          export_environment_variables: true
+
+      - name: Run incremental pipeline and dbt tests
+        env:
+          DBT_PROFILES_DIR: ${{ github.workspace }}/energy_analytics
+        run: |
+          python -m src.incremental --lookback-days 3

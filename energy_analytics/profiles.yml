@@ -1,0 +1,11 @@
+energy_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: gb-energy-analytics
+      dataset: energy_staging
+      location: us-central1
+      threads: 4
+      timeout_seconds: 300
