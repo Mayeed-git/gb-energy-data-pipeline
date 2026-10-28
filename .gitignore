@@ -1,5 +1,24 @@
 .venv/
 .env
+.env.*
 __pycache__/
-target/
-logs/
+*.pyc
+.pytest_cache/
+
+# Google Cloud credentials
+*service-account*.json
+*credentials*.json
+gha-creds-*.json
+
+# dbt build artifacts
+**/target/
+**/logs/
+**/dbt_packages/
+
+# Local raw data
+data/raw/
+
+# Editor and OS
+.vscode/
+.DS_Store
+Thumbs.db
