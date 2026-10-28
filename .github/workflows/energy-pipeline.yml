@@ -47,5 +47,6 @@ jobs:
       - name: Run incremental pipeline and dbt tests
         env:
           DBT_PROFILES_DIR: ${{ github.workspace }}/energy_analytics
+          PYTHONUNBUFFERED: "1"
         run: |
-          python -m src.incremental --lookback-days 3
+          python -u -m src.incremental --lookback-days 3
