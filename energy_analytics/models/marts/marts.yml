@@ -1,0 +1,70 @@
+
+version: 2
+
+models:
+  - name: fct_energy_weather
+    description: >
+      Hourly GB electricity and weather analytics,
+      with one record per hour and location.
+
+    columns:
+      - name: observation_hour
+        data_tests:
+          - not_null
+
+      - name: location_id
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - london
+                  - manchester
+                  - edinburgh
+
+      - name: carbon_intensity_gco2_kwh
+        data_tests:
+          - not_null
+
+      - name: wind_generation_pct
+        data_tests:
+          - not_null
+
+      - name: wind_speed_kmh
+        data_tests:
+          - not_null
+
+      - name: is_complete_hour
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [true]
+                quote: false
+  - name: fct_daily_energy
+    description: >
+      Daily Great Britain electricity summary
+      using complete hourly electricity observations.
+
+    columns:
+      - name: uk_date
+        data_tests:
+          - not_null
+          - unique
+
+      - name: complete_hours
+        data_tests:
+          - not_null
+
+      - name: avg_carbon_intensity
+        data_tests:
+          - not_null
+
+      - name: avg_wind_pct
+        data_tests:
+          - not_null
+
+      - name: avg_gas_pct
+        data_tests:
+          - not_null
+
+          

@@ -1,1 +1,0 @@
-# gb-energy-data-pipeline

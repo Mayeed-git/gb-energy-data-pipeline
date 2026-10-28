@@ -1,0 +1,18 @@
+
+version: 2
+
+sources:
+  - name: energy_raw
+    database: gb-energy-analytics
+    schema: energy_raw
+    description: "Raw electricity and weather data loaded by Python"
+
+    tables:
+      - name: carbon_intensity
+        description: "Half-hourly GB carbon intensity readings"
+
+      - name: generation_mix
+        description: "Half-hourly generation shares by fuel type"
+
+      - name: weather
+        description: "Hourly historical weather at three GB locations"
