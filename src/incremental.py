@@ -159,15 +159,28 @@ def run_incremental(lookback_days=3, run_dbt=True):
 
     # ERA5 data typically becomes available days later.
     # Use a seven-day safety buffer.
-    weather_day = (
+
+# ERA5 weather data has a publication delay.
+    latest_weather_day = (
         datetime.now(timezone.utc).date()
         - timedelta(days=7)
     )
 
-    print(f"\nProcessing eligible weather date: {weather_day}")
+    # Reprocess a rolling seven-day window to recover missed runs.
+    earliest_weather_day = (
+        latest_weather_day - timedelta(days=6)
+    )
 
-    # Existing weather backfill reuses archived GCS responses.
-    run_weather_backfill(weather_day, weather_day)
+    print(
+        f"\nProcessing weather from "
+        f"{earliest_weather_day} to {latest_weather_day}"
+    )
+
+    run_weather_backfill(
+        earliest_weather_day,
+        latest_weather_day,
+    )
+
 
     if run_dbt:
         print("\nBuilding and testing dbt models...")
