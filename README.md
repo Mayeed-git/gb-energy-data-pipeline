@@ -95,7 +95,7 @@ The Looker Studio report has three pages:
 
 **Report link:**[Explore the Great Britain Electricity & Carbon Intelligence Dashboard](https://datastudio.google.com/reporting/80f6742d-2957-4319-8306-980ae56d8059)
 
-**Screenshots:** Add your final page screenshots to `docs/screenshots/`, then uncomment these lines:
+**Screenshots:**
 
  ![Electricity Overview](docs/screenshots/01-electricity-overview.png)
  ![Weather & Electricity](docs/screenshots/02-weather-electricity.png) 
