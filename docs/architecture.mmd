@@ -1,0 +1,13 @@
+flowchart TB
+    C[UK Carbon Intensity API] --> P[Python ingestion + backfill]
+    W[Open-Meteo ERA5 historical API] --> P
+    GA[GitHub Actions scheduler] --> P
+    P --> GCS[Google Cloud Storage raw JSON archives]
+    P --> RAW[(BigQuery energy_raw: 3 tables)]
+    RAW --> STG[dbt staging: 3 views]
+    STG --> INT[dbt intermediate: 3 views]
+    INT --> MART[(BigQuery energy_marts: 2 tables)]
+    MART --> TEST[16 dbt data tests]
+    MART --> LS[Looker Studio: 3 pages]
+    GA -. OIDC .-> WI[Workload Identity Federation]
+    WI -. impersonates .-> SA[Dedicated service account]
