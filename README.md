@@ -93,13 +93,13 @@ The Looker Studio report has three pages:
 2. **Weather & Electricity Analysis** — city-specific weather KPIs, wind-speed scatter plots and daily wind-speed comparisons.
 3. **Data Quality & Monitoring** — electricity freshness, days with data, recorded-hour completeness and a coverage table.
 
-**Report link:** _Add the published/viewable Looker Studio URL here._
+**Report link:**[Explore the Great Britain Electricity & Carbon Intelligence Dashboard](https://datastudio.google.com/reporting/80f6742d-2957-4319-8306-980ae56d8059)
 
 **Screenshots:** Add your final page screenshots to `docs/screenshots/`, then uncomment these lines:
 
-<!-- ![Electricity Overview](docs/screenshots/01-electricity-overview.png) -->
-<!-- ![Weather & Electricity](docs/screenshots/02-weather-electricity.png) -->
-<!-- ![Data Quality & Monitoring](docs/screenshots/03-data-quality.png) -->
+ ![Electricity Overview](docs/screenshots/01-electricity-overview.png)
+ ![Weather & Electricity](docs/screenshots/02-weather-electricity.png) 
+ ![Data Quality & Monitoring](docs/screenshots/03-data-quality.png) 
 
 Scatter plots compare city-level wind measurements with *national* generation and carbon intensity. Relationships are exploratory and must not be interpreted as causal.
 
