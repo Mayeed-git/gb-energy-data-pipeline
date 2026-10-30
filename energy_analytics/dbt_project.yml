@@ -42,4 +42,3 @@ models:
     marts:
       +materialized: table
       +schema: energy_marts
-
