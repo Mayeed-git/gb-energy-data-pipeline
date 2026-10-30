@@ -161,7 +161,3 @@ The repository's `energy_analytics/profiles.yml` is designed for cloud Applicati
 - Persist workflow execution metadata and test outcomes for genuine operational monitoring.
 - Move resource identifiers to environment configuration and replace beta dependency pins with verified stable versions.
 - Add unit/integration tests for API failures, partial periods, and daylight-saving boundaries.
-
-## Source code
-
-Repository: [Mayeed-git/gb-energy-data-pipeline](https://github.com/Mayeed-git/gb-energy-data-pipeline)
