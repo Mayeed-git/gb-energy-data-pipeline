@@ -2,6 +2,8 @@
 
 **Automated cloud data engineering pipeline for Great Britain's electricity carbon intensity, generation mix, and regional weather.**
 
+**Dashboard Link:** https://datastudio.google.com/reporting/80f6742d-2957-4319-8306-980ae56d8059
+
 [![GitHub Actions](https://github.com/Mayeed-git/gb-energy-data-pipeline/actions/workflows/energy-pipeline.yml/badge.svg)](https://github.com/Mayeed-git/gb-energy-data-pipeline/actions/workflows/energy-pipeline.yml)
 
 **Stack:** Python · REST APIs · Google Cloud Storage · BigQuery · dbt Core · GitHub Actions · Looker Studio
